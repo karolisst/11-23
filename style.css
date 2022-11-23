@@ -1,11 +1,23 @@
 * {
     padding: 0;
     margin: 0;
+    transition: 1s ease;
+}
+
+/*
+=======
+General
+=======
+*/
+
+html {
+    scroll-behavior: smooth;
 }
 
 :root {
     --background-color-main: #303030;
     --background-color-second: #90bba9;
+    --width-main: 80%;
 }
 
 h1 {
@@ -16,17 +28,25 @@ p {
     font-size: 1em;
 }
 
+/*
+=======
+Header
+=======
+*/
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    position: sticky;
+    top: 0;
+    height: 70px;
     background-color: var(--background-color-main);
     padding: 0 5%;
 }
 
 header img {
-    max-height: 50%;
+    max-height: 40%;
 }
 
 #menu-links {
@@ -38,7 +58,14 @@ header img {
 #menu-links a {
     color: white;
     text-decoration: none;
+    font-size: 1.3em;
 }
+
+/*
+=======
+About
+=======
+*/
 
 #section-about {
     height: 50vh;
@@ -52,15 +79,102 @@ header img {
 
 #section-about p,
 #section-about h1 {
-    width: 80%;
+    width: var(--width-main);
 }
+
+/*
+=======
+Gallery
+=======
+*/
 
 #section-gallery {
-    height: 1000px;
     background-color: var(--background-color-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    row-gap: 40px;
 }
 
-#section-contact {
-    height: 500px;
+.gallery-card {
     background-color: var(--background-color-second);
+    width: var(--width-main);
+    border-radius: 15px;
+}
+
+.gallery-card img {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.gallery-card h2 {
+    color: var(--background-color-main);
+    text-align: center;
+    margin: 5% 0;
+}
+
+@media screen and (min-width: 769px) {
+    #section-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 50px 10%;
+        gap: 40px;
+    }
+
+    .gallery-card {
+        width: 100%;
+
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    #section-gallery {
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+
+/*
+=======
+Contact
+=======
+*/
+
+#section-contact {
+    background-color: var(--background-color-second);
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#section-contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--width-main);
+    gap: 20px;
+}
+
+#section-contact input {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5em;
+    border: none;
+}
+
+#section-contact textarea {
+    width: 100%;
+    height: 200px;
+    font-size: 1.5em;
+    resize: none;
+    border: none;
+}
+
+#section-contact button {
+    width: 25%;
+    height: 50px;
+    font-size: 1.5em;
+    resize: none;
+    border: none;
 }
